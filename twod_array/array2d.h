@@ -10,6 +10,7 @@ private:
   int* data;
 public:
   Array(int n);
+  Array(const Array& other);
   ~Array();
   int* operator[](int row);
 };

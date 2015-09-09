@@ -18,9 +18,20 @@ Array::Array(int size) : n(size)
   std::qsort(data, n*n, sizeof(int), cmp);
 }
 
+Array::Array(const Array& other)
+{
+  n = other.n;
+  data = new int[n];
+  for (int i = 0; i < n; ++i)
+  {
+    data[i] = other.data[i];
+  }
+}
+
 Array::~Array()
 {
   delete [] data;
+  data = NULL;
 }
 
 int* Array::operator[](int row)
